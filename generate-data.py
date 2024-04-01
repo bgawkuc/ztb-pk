@@ -1,8 +1,10 @@
-from random import randint
+from random import randint, seed
 
 import faker
 import csv
+import os
 
+seed(123)
 
 categories = [
     'dairy', 'grains', 'condiments', 'snacks', 'frozen', 'produce', 'meat', 'seafood', 'legumes', 'canned', 'breads',
@@ -41,8 +43,12 @@ def get_id_field_name(file_name):
     return '_id' if 'mongo' in file_name else 'id'
 
 
+def get_file_path(file_name):
+    return os.path.join('mongo', 'data-files', file_name) if 'mongo' in file_name else os.path.join('data-files', file_name)
+
+
 def generate_categories_data(file_name='categories.csv'):
-    with open(file_name, 'w', newline='') as csvfile:
+    with open(get_file_path(file_name), 'w', newline='') as csvfile:
         id_field = get_id_field_name(file_name)
         fieldnames = [id_field, 'category_name']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -53,7 +59,7 @@ def generate_categories_data(file_name='categories.csv'):
 
 
 def generate_products_data(file_name='products.csv'):
-    with open(file_name, 'w', newline='') as csvfile:
+    with open(get_file_path(file_name), 'w', newline='') as csvfile:
         id_field = get_id_field_name(file_name)
         fieldnames = [id_field, 'product_name', 'price', 'category_id']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -68,7 +74,7 @@ def generate_products_data(file_name='products.csv'):
 def generate_customers_data(file_name='customers.csv'):
     fake = faker.Faker()
 
-    with open(file_name, 'w', newline='') as csvfile:
+    with open(get_file_path(file_name), 'w', newline='') as csvfile:
         id_field = get_id_field_name(file_name)
         fieldnames = [id_field, 'name', 'surname', 'street', 'number', 'city']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -86,7 +92,7 @@ def generate_customers_data(file_name='customers.csv'):
 
 
 def generate_orders_data(file_name='orders.csv'):
-    with open(file_name, 'w', newline='') as csvfile:
+    with open(get_file_path(file_name), 'w', newline='') as csvfile:
         id_field = get_id_field_name(file_name)
         fieldnames = [id_field, 'customer_id']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -98,7 +104,7 @@ def generate_orders_data(file_name='orders.csv'):
 
 
 def generate_order_product_data(file_name='order_product.csv'):
-    with open(file_name, 'w', newline='') as csvfile:
+    with open(get_file_path(file_name), 'w', newline='') as csvfile:
         fieldnames = ['order_id', 'product_id', 'count']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -132,5 +138,6 @@ if __name__ == "__main__":
     generate_orders_data('orders_mongo.csv')
 
     generate_order_product_data()
+    generate_order_product_data('order_product_mongo.csv')
     print("CSV file generated successfully.")
 
