@@ -1,105 +1,105 @@
-_id,product_name,price,category_id
-1,bread,34,11
-2,milk,19,1
-3,eggs,3,1
-4,butter,5,1
-5,cheese,28,1
-6,yogurt,9,1
+id,product_name,price,category_id
+1,bread,10,11
+2,milk,5,1
+3,eggs,21,1
+4,butter,34,1
+5,cheese,29,1
+6,yogurt,4,1
 7,rice,9,2
-8,pasta,33,2
-9,flour,18,2
-10,sugar,4,3
-11,salt,18,3
-12,pepper,3,3
-13,oil,18,3
-14,vinegar,14,3
-15,ketchup,25,3
-16,mustard,6,3
-17,mayonnaise,4,3
-18,jam,30,3
-19,honey,10,3
-20,syrup,15,3
-21,cereal,26,4
-22,coffee,35,4
-23,tea,3,4
-24,juice,10,4
-25,water,24,4
-26,soda,35,4
-27,chips,8,4
-28,crackers,31,4
-29,cookies,34,4
-30,chocolate,20,4
-31,ice cream,15,5
-32,frozen vegetables,24,5
-33,frozen fruits,20,5
-34,frozen pizza,34,5
-35,frozen meals,31,5
+8,pasta,35,2
+9,flour,5,2
+10,sugar,13,3
+11,salt,16,3
+12,pepper,14,3
+13,oil,19,3
+14,vinegar,15,3
+15,ketchup,22,3
+16,mustard,10,3
+17,mayonnaise,8,3
+18,jam,25,3
+19,honey,30,3
+20,syrup,28,3
+21,cereal,34,4
+22,coffee,16,4
+23,tea,21,4
+24,juice,31,4
+25,water,34,4
+26,soda,12,4
+27,chips,26,4
+28,crackers,10,4
+29,cookies,11,4
+30,chocolate,27,4
+31,ice cream,28,5
+32,frozen vegetables,35,5
+33,frozen fruits,33,5
+34,frozen pizza,35,5
+35,frozen meals,8,5
 36,fresh fruits,35,6
-37,fresh vegetables,20,6
-38,chicken,32,7
-39,beef,10,7
-40,pork,24,7
-41,fish,9,8
+37,fresh vegetables,22,6
+38,chicken,23,7
+39,beef,5,7
+40,pork,6,7
+41,fish,5,8
 42,shrimp,34,8
-43,tofu,27,9
-44,beans,4,9
-45,soup,13,10
-46,canned vegetables,17,10
-47,canned fruits,35,10
-48,canned beans,9,10
-49,canned soup,26,10
-50,canned tuna,30,10
-51,bread rolls,30,11
-52,buns,29,11
-53,bagels,31,11
-54,tortillas,3,11
-55,pita bread,22,11
-56,croissants,20,11
-57,lettuce,35,6
+43,tofu,17,9
+44,beans,30,9
+45,soup,20,10
+46,canned vegetables,6,10
+47,canned fruits,21,10
+48,canned beans,31,10
+49,canned soup,5,10
+50,canned tuna,22,10
+51,bread rolls,23,11
+52,buns,4,11
+53,bagels,22,11
+54,tortillas,24,11
+55,pita bread,12,11
+56,croissants,34,11
+57,lettuce,13,6
 58,tomatoes,15,6
-59,potatoes,11,6
-60,onions,6,6
-61,carrots,12,6
-62,bell peppers,14,6
+59,potatoes,19,6
+60,onions,18,6
+61,carrots,27,6
+62,bell peppers,35,6
 63,spinach,31,6
-64,cucumbers,11,6
+64,cucumbers,35,6
 65,avocados,24,6
-66,bananas,34,6
-67,apples,34,6
-68,oranges,8,6
-69,grapes,4,6
+66,bananas,32,6
+67,apples,28,6
+68,oranges,4,6
+69,grapes,21,6
 70,strawberries,12,6
-71,blueberries,3,6
-72,lemons,17,6
-73,limes,29,6
-74,peaches,26,6
-75,pears,7,6
-76,kiwis,3,6
-77,mangoes,23,6
-78,pineapples,11,6
-79,watermelons,3,6
-80,cherries,24,6
-81,dates,20,6
-82,figs,9,6
-83,plums,19,6
-84,raspberries,19,6
-85,blackberries,35,6
-86,cranberries,14,6
-87,almonds,16,12
-88,walnuts,25,12
-89,pecans,5,12
-90,cashews,24,12
-91,peanuts,8,12
-92,sunflower seeds,31,12
-93,pumpkin seeds,6,12
-94,flaxseeds,6,12
-95,chia seeds,21,12
-96,quinoa,33,2
-97,oats,8,2
-98,barley,11,2
-99,millet,8,2
-100,brown rice,23,2
-101,white rice,14,2
-102,whole wheat bread,31,11
-103,whole wheat pasta,10,2
-104,corn tortillas,6,11
+71,blueberries,8,6
+72,lemons,32,6
+73,limes,5,6
+74,peaches,12,6
+75,pears,9,6
+76,kiwis,7,6
+77,mangoes,8,6
+78,pineapples,23,6
+79,watermelons,35,6
+80,cherries,19,6
+81,dates,25,6
+82,figs,21,6
+83,plums,20,6
+84,raspberries,25,6
+85,blackberries,6,6
+86,cranberries,23,6
+87,almonds,13,12
+88,walnuts,19,12
+89,pecans,18,12
+90,cashews,31,12
+91,peanuts,7,12
+92,sunflower seeds,25,12
+93,pumpkin seeds,28,12
+94,flaxseeds,5,12
+95,chia seeds,22,12
+96,quinoa,26,2
+97,oats,15,2
+98,barley,16,2
+99,millet,20,2
+100,brown rice,32,2
+101,white rice,12,2
+102,whole wheat bread,24,11
+103,whole wheat pasta,12,2
+104,corn tortillas,30,11
