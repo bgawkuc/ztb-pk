@@ -97,7 +97,7 @@ def generate_orders_data(file_name='orders.csv'):
             writer.writerow({id_field: order_id+1, 'customer_id': customer_id})
 
 
-def generate_order_product_data(file_name='order-product.csv'):
+def generate_order_product_data(file_name='order_product.csv'):
     with open(file_name, 'w', newline='') as csvfile:
         fieldnames = ['order_id', 'product_id', 'count']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -120,16 +120,16 @@ def generate_order_product_data(file_name='order-product.csv'):
 
 if __name__ == "__main__":
     generate_categories_data()
-    generate_categories_data('categories-mongo.csv')
+    generate_categories_data('categories_mongo.csv')
 
     generate_products_data()
-    generate_products_data('products-mongo.csv')
+    generate_products_data('products_mongo.csv')
 
     generate_customers_data()
-    generate_customers_data('customers-mongo.csv')
+    generate_customers_data('customers_mongo.csv')
 
     generate_orders_data()
-    generate_orders_data('orders-mongo.csv')
+    generate_orders_data('orders_mongo.csv')
 
     generate_order_product_data()
     print("CSV file generated successfully.")
