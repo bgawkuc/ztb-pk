@@ -1,4 +1,4 @@
-## MongoDB
+# MongoDB
 
 1. (recommended) Install `MongoDB for VS Code` extension
 2. Start MongoDB server
