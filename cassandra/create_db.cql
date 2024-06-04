@@ -79,14 +79,14 @@ CREATE TABLE IF NOT EXISTS order_product_by_customer
 
 CREATE TABLE IF NOT EXISTS product_count_by_category_and_customer
 (
-    customer_id INT,
-    name TEXT,
-    surname TEXT,
-    city TEXT,
-    street TEXT,
-    number INT,
-    category_id INT,
+    customer_id   INT,
+    name          TEXT,
+    surname       TEXT,
+    city          TEXT,
+    street        TEXT,
+    number        INT,
+    category_id   INT,
     category_name TEXT,
     product_count INT,
-    PRIMARY KEY ((customer_id, category_id), product_count)
-) WITH CLUSTERING ORDER BY (product_count DESC);
+    PRIMARY KEY ((category_id), customer_id)
+);

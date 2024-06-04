@@ -3,6 +3,7 @@ from random import randint, seed
 import faker
 import csv
 import os
+import sys
 
 seed(123)
 
@@ -35,7 +36,7 @@ product_category_mapping = {
 
 PRODUCTS_NUMBER = len(product_category_mapping)
 CUSTOMERS_NUMBER = 300
-ORDERS_NUMBER = 2000
+ORDERS_NUMBER = int(sys.argv[1])
 
 
 # mongo id field -> _id
@@ -44,7 +45,7 @@ def get_id_field_name(file_name):
 
 
 def get_file_path(file_name):
-    return os.path.join('mongo', 'data-files', file_name) if 'mongo' in file_name else os.path.join('data-files', file_name)
+    return os.path.join('../mongo', 'data-files', file_name) if 'mongo' in file_name else os.path.join('../data-files', file_name)
 
 
 def generate_categories_data(file_name='categories.csv'):
@@ -110,11 +111,9 @@ def generate_order_product_data(file_name='order_product.csv'):
         writer.writeheader()
 
         for order_id in range(ORDERS_NUMBER):
-            # number of products in order from 1 to 20
             products_number = randint(1, 20)
             unique_product_ids = []
             for _ in range(products_number):
-                # unique product in order
                 while True:
                     product_id = randint(1, PRODUCTS_NUMBER)
                     if product_id not in unique_product_ids:
@@ -139,5 +138,3 @@ if __name__ == "__main__":
 
     generate_order_product_data()
     generate_order_product_data('order_product_mongo.csv')
-    print("CSV file generated successfully.")
-

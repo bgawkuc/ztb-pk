@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS categories
 (
     id            SERIAL PRIMARY KEY,
     category_name VARCHAR(255) NOT NULL
-    );
+);
 
 CREATE TABLE IF NOT EXISTS products
 (
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS products
     price        INT          NOT NULL,
     category_id  INT,
     FOREIGN KEY (category_id) REFERENCES categories (id)
-    );
+);
 
 CREATE TABLE IF NOT EXISTS customers
 (
@@ -21,14 +21,14 @@ CREATE TABLE IF NOT EXISTS customers
     street  VARCHAR(255) NOT NULL,
     number  INT          NOT NULL,
     city    VARCHAR(255) NOT NULL
-    );
+);
 
 CREATE TABLE IF NOT EXISTS orders
 (
     id          SERIAL PRIMARY KEY,
     customer_id INT,
     FOREIGN KEY (customer_id) REFERENCES customers (id)
-    );
+);
 
 CREATE TABLE IF NOT EXISTS order_product
 (
@@ -37,4 +37,4 @@ CREATE TABLE IF NOT EXISTS order_product
     count      INT,
     FOREIGN KEY (order_id) REFERENCES orders (id),
     FOREIGN KEY (product_id) REFERENCES products (id)
-    );
+);

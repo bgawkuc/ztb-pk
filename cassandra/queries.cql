@@ -25,6 +25,4 @@ GROUP BY product_id;
 
 SELECT customer_id, name, surname, street + ', ' + cast(number AS TEXT) + ', ' + city AS address, product_count
 FROM product_count_by_category_and_customer
-WHERE category_id = 1
-ORDER BY product_count DESC
-LIMIT 1;
+WHERE category_id = 1;

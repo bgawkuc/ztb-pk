@@ -46,7 +46,7 @@ FROM order_product op
          JOIN categories c ON c.id = p.category_id
 GROUP BY c.id;
 
--- finds customer with the most ordered products from given category (id=1)
+-- finds ordered products from given category (id=1) grouped by customer and ordered by count descending
 SELECT c.id,
        c.name,
        c.surname,
@@ -59,8 +59,7 @@ FROM customers c
          JOIN categories cat ON cat.id = p.category_id
 WHERE cat.id = 1
 GROUP BY c.id
-ORDER BY count DESC
-LIMIT 1;
+ORDER BY count DESC;
 
 --  finds all distinct products ordered by given customer (id=1) with number of orders and total count
 SELECT DISTINCT p.product_name, COUNT(o.id), SUM(op.count)
@@ -71,7 +70,7 @@ FROM products p
 WHERE c.id = 1
 GROUP BY p.id;
 
---  finds customer that has spent the most on products from given category (id=1)
+--  finds amount spent on products from given category (id=1) grouped by customer and ordered by amount
 SELECT c.id,
        c.name,
        c.surname,
@@ -84,21 +83,9 @@ FROM customers c
          JOIN categories cat ON cat.id = p.category_id
 WHERE cat.id = 1
 GROUP BY c.id
-ORDER BY total_value DESC
-LIMIT 1;
+ORDER BY total_value DESC;
 
---  delete all given client's (id=1) orders with products
-BEGIN;
-DELETE
-FROM order_product op
-WHERE op.order_id IN (SELECT o.id FROM orders o WHERE o.customer_id = 1);
-
-DELETE
-FROM orders o
-WHERE o.customer_id = 1;
-COMMIT;
-
---  batch delete 1000 rows from order_product table
+-- delete 1000 rows from order_product table
 BEGIN;
 WITH cte AS (SELECT order_id, product_id FROM order_product LIMIT 1000)
 DELETE
@@ -106,13 +93,3 @@ FROM order_product op USING cte
 WHERE op.order_id = cte.order_id
   AND op.product_id = cte.product_id;
 COMMIT;
-
---  delete all entries for product with given id (id=1) from order_product table
-BEGIN;
-DELETE
-FROM order_product op
-WHERE op.product_id = 1;
-COMMIT;
-
---  insert big order from CSV file
-BEGIN;

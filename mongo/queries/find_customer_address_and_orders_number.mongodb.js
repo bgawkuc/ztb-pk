@@ -1,11 +1,10 @@
 use("grocery_store");
 
-const customer_id = 1;
-
+// 4
 // find customer address and number of orders
 db.customers.aggregate([
   {
-    $match: { _id: customer_id },
+    $match: { _id: 1 },
   },
   {
     $lookup: {

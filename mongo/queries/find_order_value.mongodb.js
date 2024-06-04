@@ -1,11 +1,10 @@
 use("grocery_store");
 
-var order_id = 2;
-
+// 3
 // find order total value, write all order products with price, count and product total
 db.order_product.aggregate([
   {
-    $match: { order_id },
+    $match: { order_id: 2 },
   },
   {
     $lookup: {

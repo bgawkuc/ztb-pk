@@ -2,6 +2,7 @@ use("grocery_store");
 
 const order_id = 2;
 
+// 2
 // for an order with the given id finds all products with category, price and quantity
 db.order_product.aggregate([
   {

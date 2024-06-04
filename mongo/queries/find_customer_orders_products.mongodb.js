@@ -2,6 +2,7 @@ use("grocery_store");
 
 const customer_id = 1;
 
+// 1
 // for all the customer orders finds the names of the products
 db.orders.aggregate([
   {

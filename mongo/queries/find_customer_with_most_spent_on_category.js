@@ -1,3 +1,5 @@
+// 8
+// finds amount spent on products from given category (id=1) grouped by customer and ordered by amount
 db.customers.aggregate([
     {
         $lookup: {
@@ -57,8 +59,5 @@ db.customers.aggregate([
     },
     {
         $sort: { total_value: -1 }
-    },
-    {
-        $limit: 1
     }
-])
+]);

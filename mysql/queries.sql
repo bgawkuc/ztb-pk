@@ -3,15 +3,15 @@ USE grocery_store;
 #  for all customer (id=1) orders finds the names of the products
 SELECT o.id AS order_id, p.product_name
 FROM orders o
-JOIN order_product od ON o.id = od.order_id
-JOIN products p ON od.product_id = p.id
+         JOIN order_product od ON o.id = od.order_id
+         JOIN products p ON od.product_id = p.id
 WHERE o.customer_id = 1;
 
 #  for an order (id=2) finds all products with category, price and quantity
 SELECT p.product_name, c.category_name, p.price, od.count AS quantity
 FROM order_product od
-JOIN products p ON od.product_id = p.id
-JOIN categories c ON p.category_id = c.id
+         JOIN products p ON od.product_id = p.id
+         JOIN categories c ON p.category_id = c.id
 WHERE od.order_id = 2;
 
 # finds order (id=2) total value, write all order products with price, count and product total
@@ -23,14 +23,14 @@ SELECT
     p.price * od.count AS product_total,
     (SELECT SUM(p.price * od.count)
      FROM orders o
-     JOIN order_product od ON o.id = od.order_id
-     JOIN products p ON od.product_id = p.id
+              JOIN order_product od ON o.id = od.order_id
+              JOIN products p ON od.product_id = p.id
      WHERE o.id = 2) AS total_order_value
 FROM
     orders o
-JOIN
+        JOIN
     order_product od ON o.id = od.order_id
-JOIN
+        JOIN
     products p ON od.product_id = p.id
 WHERE
     o.id = 2;
@@ -41,7 +41,7 @@ SELECT
     COUNT(o.id) AS number_of_orders
 FROM
     customers c
-LEFT JOIN
+        LEFT JOIN
     orders o ON c.id = o.customer_id
 WHERE
     c.id = 1;
@@ -53,7 +53,7 @@ FROM order_product op
          JOIN categories c ON c.id = p.category_id
 GROUP BY c.id;
 
--- finds customer with the most ordered products from given category (id=1)
+-- finds ordered products from given category (id=1) grouped by customer and ordered by count descending
 SELECT c.id,
        c.name,
        c.surname,
@@ -66,8 +66,7 @@ FROM customers c
          JOIN categories cat ON cat.id = p.category_id
 WHERE cat.id = 1
 GROUP BY c.id
-ORDER BY count DESC
-LIMIT 1;
+ORDER BY count DESC;
 
 --  finds all distinct products ordered by given customer (id=1) with number of orders and total count
 SELECT DISTINCT p.product_name, COUNT(o.id), SUM(op.count)
@@ -78,7 +77,7 @@ FROM products p
 WHERE c.id = 1
 GROUP BY p.id;
 
---  finds customer that has spent the most on products from given category (id=1)
+--  finds amount spent on products from given category (id=1) grouped by customer and ordered by amount
 SELECT c.id,
        c.name,
        c.surname,
@@ -91,30 +90,11 @@ FROM customers c
          JOIN categories cat ON cat.id = p.category_id
 WHERE cat.id = 1
 GROUP BY c.id
-ORDER BY total_value DESC
-LIMIT 1;
+ORDER BY total_value DESC;
 
---  delete all given client's (id=1) orders with products
-BEGIN;
-DELETE
-FROM order_product op
-WHERE op.order_id IN (SELECT o.id FROM orders o WHERE o.customer_id = 1);
-
-DELETE
-FROM orders o
-WHERE o.customer_id = 1;
-COMMIT;
-
---  batch delete 1000 rows from order_product table
+--  delete 1000 rows from order_product table
 BEGIN;
 DELETE
 FROM order_product op
 LIMIT 1000;
-COMMIT;
-
---  delete all entries for product with given id (id=1) from order_product table
-BEGIN;
-DELETE
-FROM order_product op
-WHERE op.product_id = 1;
 COMMIT;

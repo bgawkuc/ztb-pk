@@ -1,3 +1,5 @@
+// 7
+// finds all distinct products ordered by given customer (id=1) with number of orders and total count
 db.products.aggregate([
     {
         $lookup: {
@@ -43,4 +45,4 @@ db.products.aggregate([
             total_count: { $sum: "$order_products.count" }
         }
     }
-])
+]);

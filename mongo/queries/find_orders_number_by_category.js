@@ -1,3 +1,5 @@
+// 5
+// finds number of orders containing products from each category
 db.order_product.aggregate([
     {
         $lookup: {
@@ -27,4 +29,4 @@ db.order_product.aggregate([
             number_of_orders: { $sum: { $cond: [{ $gt: ["$order_id", null] }, 1, 0] } }
         }
     }
-])
+]);

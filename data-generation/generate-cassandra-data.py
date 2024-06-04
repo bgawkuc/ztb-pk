@@ -2,7 +2,7 @@ import csv
 import os
 
 def get_file_path(file_name):
-    return os.path.join('data-files', file_name)
+    return os.path.join('../data-files', file_name)
 
 
 def generate_products_cassandra_data(file_name='products_cassandra.csv'):
